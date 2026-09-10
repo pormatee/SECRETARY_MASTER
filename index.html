@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#eef7ff">
+  <title>MEasyMate Secretary</title>
+  <style>
+    :root{
+      --bg:#f4f8fc;--card:#fff;--ink:#17324d;--muted:#6b8297;--line:#dce7f0;
+      --primary:#2477c9;--primary2:#eaf4ff;--ok:#177a55;--warn:#a66a00;--bad:#a23c3c;
+      --shadow:0 8px 24px rgba(30,75,110,.08);--r:18px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Thai",sans-serif}
+    .wrap{max-width:980px;margin:auto;padding:16px 14px 44px}
+    .hero{background:linear-gradient(135deg,#eaf4ff,#fff);border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:var(--shadow)}
+    .brand{font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--primary);text-transform:uppercase}
+    h1{margin:5px 0 6px;font-size:28px}
+    .sub{color:var(--muted);font-size:14px}
+    .notice{margin-top:14px;background:#fff8e8;border:1px solid #f0d9a1;padding:12px 14px;border-radius:14px;font-size:13px}
+    .topgrid,.stats,.grid{display:grid;gap:12px}
+    .topgrid{grid-template-columns:1fr;margin-top:14px}
+    .stats{grid-template-columns:repeat(2,1fr);margin-top:14px}
+    .stat,.panel,.project{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+    .stat{padding:14px}.stat b{font-size:22px;display:block}.stat span{font-size:12px;color:var(--muted)}
+    .panel{padding:16px;margin-top:14px}
+    .panel h2{font-size:17px;margin:0 0 10px}
+    .tools{display:flex;gap:8px;flex-wrap:wrap}
+    input,select{width:100%;border:1px solid var(--line);background:#fff;border-radius:13px;padding:12px 13px;font-size:16px;color:var(--ink)}
+    .search{flex:1 1 260px}.filter{flex:0 0 150px}
+    .grid{grid-template-columns:1fr;margin-top:12px}
+    .project{padding:15px;cursor:pointer;transition:.15s}
+    .project:active{transform:scale(.995)}
+    .row{display:flex;gap:10px;align-items:flex-start;justify-content:space-between}
+    .project h3{font-size:16px;margin:0 0 4px}.type{font-size:12px;color:var(--muted)}
+    .badge{font-size:11px;font-weight:800;border-radius:999px;padding:6px 9px;white-space:nowrap;background:var(--primary2);color:var(--primary)}
+    .badge.verify{background:#fff3d9;color:var(--warn)} .badge.blocked{background:#fde8e8;color:var(--bad)}
+    .meta{font-size:12px;color:var(--muted);margin-top:10px}.summary{font-size:13px;margin-top:9px;line-height:1.55}
+    .detail{display:none;margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+    .detail.open{display:block}.detail h4{font-size:13px;margin:10px 0 5px}.detail ul{margin:0;padding-left:20px;font-size:13px;line-height:1.55}
+    .empty{padding:22px;text-align:center;color:var(--muted)}
+    .quick{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .quick a{display:block;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;font-size:13px}
+    .quick a b{display:block;color:var(--primary);margin-bottom:3px}
+    footer{text-align:center;color:var(--muted);font-size:11px;margin-top:28px}
+    @media(min-width:720px){.stats{grid-template-columns:repeat(4,1fr)}.grid{grid-template-columns:1fr 1fr}.topgrid{grid-template-columns:1.2fr .8fr}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <section class="hero">
+    <div class="brand">Make Everything Easy</div>
+    <h1>MEasyMate Secretary</h1>
+    <div class="sub">Control Tower แบบ Read Only สำหรับดูสถานะ งานค้าง Blocker การตัดสินใจ และ Next Work</div>
+    <div class="notice"><b>กติกาความปลอดภัย:</b> Dashboard นี้แสดงข้อมูลสรุปจาก Master/Checkpoint เท่านั้น เลขาไม่แก้ source code ของ Project Repo โดยอัตโนมัติ และข้อมูลที่ยังไม่ยืนยันจะแสดงเป็น UNVERIFIED</div>
+  </section>
+
+  <div class="topgrid">
+    <div>
+      <div class="stats">
+        <div class="stat"><b id="countProjects">—</b><span>Projects</span></div>
+        <div class="stat"><b id="countActive">—</b><span>ACTIVE</span></div>
+        <div class="stat"><b id="countVerify">—</b><span>VERIFY / BLOCKED</span></div>
+        <div class="stat"><b id="countDecisions">—</b><span>Decisions</span></div>
+      </div>
+      <section class="panel">
+        <h2>งานระบบเลขาถัดไป</h2>
+        <ol id="systemNext" style="margin:0;padding-left:20px;font-size:13px;line-height:1.7"></ol>
+      </section>
+    </div>
+    <section class="panel" style="margin-top:14px">
+      <h2>เปิดข้อมูลสำคัญ</h2>
+      <div class="quick">
+        <a href="MEASYMATE_SECRETARY_MASTER.md"><b>MASTER</b>ภาพรวมกลางทั้งหมด</a>
+        <a href="priorities/NOW_NEXT_HOLD.md"><b>PRIORITY</b>NOW / NEXT / HOLD</a>
+        <a href="daily/LATEST.md"><b>DAILY</b>Daily Brief ล่าสุด</a>
+        <a href="decisions/DECISION_LOG.md"><b>DECISIONS</b>การตัดสินใจสำคัญ</a>
+      </div>
+    </section>
+  </div>
+
+  <section class="panel">
+    <h2>ค้นหาโปรเจกต์ / หัวข้อ</h2>
+    <div class="tools">
+      <div class="search"><input id="search" placeholder="เช่น Promo, Report Pro, QR, Money..." autocomplete="off"></div>
+      <div class="filter"><select id="stateFilter"><option value="">ทุกสถานะ</option><option>ACTIVE</option><option>VERIFY</option><option>BLOCKED</option><option>NEXT</option><option>HOLD</option><option>CLOSED / VERIFIED</option></select></div>
+    </div>
+    <div id="projects" class="grid"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Decisions ล่าสุด</h2>
+    <div id="decisions"></div>
+  </section>
+
+  <footer id="footer">Loading verified secretary read model…</footer>
+</div>
+<script>
+let DB=null;
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+function badgeClass(s){s=(s||'').toLowerCase();return s.includes('verify')?'verify':s.includes('blocked')?'blocked':''}
+function projectText(p){return [p.name,p.type,p.state,p.summary,...(p.working||[]),...(p.blockers||[]),...(p.next||[])].join(' ').toLowerCase()}
+function renderProjects(){
+  const q=document.querySelector('#search').value.trim().toLowerCase();
+  const f=document.querySelector('#stateFilter').value;
+  const rows=DB.projects.filter(p=>(!q||projectText(p).includes(q))&&(!f||p.state===f));
+  const el=document.querySelector('#projects');
+  if(!rows.length){el.innerHTML='<div class="empty">ไม่พบข้อมูลที่ค้นหา</div>';return}
+  el.innerHTML=rows.map((p,i)=>`
+    <article class="project" data-i="${esc(p.id)}">
+      <div class="row"><div><h3>${esc(p.name)}</h3><div class="type">${esc(p.type)}</div></div>
+      <span class="badge ${badgeClass(p.state)}">${esc(p.state)}</span></div>
+      <div class="summary">${esc(p.summary)}</div>
+      <div class="meta">Last verified: ${esc(p.lastVerified)} · Priority: ${esc(p.priority)} · Repo: ${esc(p.repo)}</div>
+      <div class="detail" id="d-${esc(p.id)}">
+        <h4>✅ Working / Verified summary</h4><ul>${(p.working||[]).map(x=>`<li>${esc(x)}</li>`).join('')||'<li>—</li>'}</ul>
+        <h4>⚠️ Blockers / Open issues</h4><ul>${(p.blockers||[]).map(x=>`<li>${esc(x)}</li>`).join('')||'<li>ไม่มี blocker ที่บันทึกใน read model ปัจจุบัน</li>'}</ul>
+        <h4>➡️ Next Work</h4><ul>${(p.next||[]).map(x=>`<li>${esc(x)}</li>`).join('')||'<li>—</li>'}</ul>
+      </div>
+    </article>`).join('');
+  el.querySelectorAll('.project').forEach(card=>card.addEventListener('click',()=>document.querySelector('#d-'+card.dataset.i).classList.toggle('open')));
+}
+function render(){
+  document.querySelector('#countProjects').textContent=DB.projects.length;
+  document.querySelector('#countActive').textContent=DB.projects.filter(p=>p.state==='ACTIVE').length;
+  document.querySelector('#countVerify').textContent=DB.projects.filter(p=>['VERIFY','BLOCKED'].includes(p.state)).length;
+  document.querySelector('#countDecisions').textContent=DB.decisions.length;
+  document.querySelector('#systemNext').innerHTML=DB.systemNextWork.map(x=>`<li>${esc(x)}</li>`).join('');
+  document.querySelector('#decisions').innerHTML=DB.decisions.slice().reverse().slice(0,6).map(d=>`<div style="padding:9px 0;border-bottom:1px solid var(--line);font-size:13px"><b>${esc(d.id)}</b> · ${esc(d.date)}<br>${esc(d.decision)}</div>`).join('');
+  document.querySelector('#footer').textContent=`Read model: ${DB.schema} · Updated ${DB.generatedAt} · Source: ${DB.sourceRepo}`;
+  renderProjects();
+}
+fetch('data/secretary-data.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(x=>{DB=x;render()}).catch(e=>{
+ document.querySelector('#projects').innerHTML='<div class="empty">โหลดข้อมูลไม่ได้ — กรุณาเปิดผ่าน GitHub Pages/HTTP ไม่ใช่ file://</div>';
+ document.querySelector('#footer').textContent='Read model load error: '+e.message;
+});
+document.querySelector('#search').addEventListener('input',()=>DB&&renderProjects());
+document.querySelector('#stateFilter').addEventListener('change',()=>DB&&renderProjects());
+</script>
+</body>
+</html>
