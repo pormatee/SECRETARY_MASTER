@@ -1,21 +1,26 @@
-# Daily Brief — 10 Sep 2026
+# Daily Brief — 11 Sep 2026
 
-## Secretary System
-- สร้าง GitHub repo กลางแล้ว: `pormatee/SECRETARY_MASTER`
-- ยืนยันหลักการ: เลขาดูแลเฉพาะ Master / summary / checkpoint / dashboard
-- Project source repos: อ่านเพื่อตรวจสถานะได้ แต่ไม่แก้โดยอัตโนมัติ
-- เริ่ม Web Dashboard แบบ Read Only
+## สรุปล่าสุด
+- Portfolio checkpoint ล่าสุดอยู่ใน GitHub แล้วที่ `daily/2026-09-10_PORTFOLIO_CHECKPOINT.md`.
+- MEasyMate Secretary เป็น Control Tower กลาง และไม่แก้ source project อื่นโดยอัตโนมัติ.
+- AIsure มี Continuity แยกที่ `/root/AIsure_CONTINUITY`.
+- AIsure Coverage Adequacy V1 = FROZEN / PASS.
+- AIsure Protection Gap V1 = FROZEN_VERIFIED; final freeze regression 13/13 files PASS.
+- AIsure เหลือ post-cleanup smoke ก่อนปิด Step 6D แบบ CLEAN แล้วไป Product & Plan Intelligence.
+- MEasyMate AI Hub Phase 0 = APPROVED / FROZEN.
+- AI Hub repo: `pormatee/measymate-ai-hub`, branch `main`; ล่าสุดยังไม่มี source implementation.
+- AI Hub V1: Product → Hub → AI Provider; DeepSeek provider แรก; secret อยู่ Server Environment; provider-neutral contract; auth/product_id/client_id/rate limit/quota/safe errors/usage tracking; text→text non-streaming; no automatic fallback; prompt/response ไม่ log โดย default.
+- Promotion Intelligence เดินต่อจาก P5G เท่านั้น.
+- PrachinLife / LocalLife ต้องอ่าน Continuity ล่าสุดก่อนพัฒนาต่อ.
 
-## งานค้างของระบบเลขา
-1. Push ชุดไฟล์เริ่มต้นขึ้น `SECRETARY_MASTER`
-2. เปิด GitHub Pages จาก branch `main` / root
-3. เติม repo URL ของแต่ละ Project หลังตรวจยืนยัน
-4. ตรวจ source/checkpoint ล่าสุดทีละ Project
-5. กำหนด Portfolio NOW / NEXT / HOLD
+## งานถัดไป
+1. AIsure: post-cleanup smoke → hash snapshot → Product & Plan Intelligence architecture.
+2. MEasyMate AI Hub: Phase 1 จาก Phase 0 ที่ Freeze แล้ว โดยไม่ใส่ secret ลง repo.
+3. Secretary: เพิ่ม AIsure และ MEasyMate AI Hub เข้า registry หลัก.
+4. Promotion Intelligence: เดินต่อจาก P5G โดยรักษา fail-closed.
+5. PrachinLife: resume จาก latest Continuity เท่านั้น.
 
-## 3 เรื่องที่ควรทำก่อนสำหรับการตั้งระบบเลขา
-1. Push ชุดไฟล์ V1 ขึ้น repo
-2. เปิด GitHub Pages และตรวจ Dashboard บนมือถือ
-3. เริ่มตรวจ/เติม repo URL และ Last Verified State ทีละ Project
-
-> หมายเหตุ: รายการ 3 ข้อนี้เป็นลำดับสำหรับ “การตั้งระบบเลขา” ไม่ใช่การจัด Priority ของทุก Product ใน portfolio
+## กฎสำคัญ
+- `ACTIVE` ไม่ได้หมายถึงทำทุก project พร้อมกัน.
+- Source/version/test/deployment ที่ไม่มีหลักฐาน = `UNVERIFIED`.
+- Secrets/API keys/passwords/tokens/customer-sensitive data ห้ามเก็บใน Secretary Master.

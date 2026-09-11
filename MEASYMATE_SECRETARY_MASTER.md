@@ -684,3 +684,42 @@ SOURCE/REPO:
 - `index.html` is a read-only mobile dashboard for the owner.
 - `data/secretary-data.json` is a published read model derived from verified Master/checkpoints.
 - The JSON is not a competing source of truth. When it conflicts with verified source/project evidence, update Master first, then refresh the read model.
+
+---
+
+# Portfolio Update — 11 Sep 2026
+
+## AIsure
+**Status:** ACTIVE / STEP 6D FROZEN VERIFIED
+
+- External Continuity installed at `/root/AIsure_CONTINUITY`.
+- Source working tree remains `/root/AInsure`.
+- Coverage Adequacy V1 = FROZEN / PASS.
+- Protection Gap V1 = FROZEN_VERIFIED.
+- Final freeze regression = 13/13 files PASS.
+- Post-cleanup smoke still pending before clean closure.
+- Next: smoke → hash snapshot → Product & Plan Intelligence architecture.
+- Frozen baselines must not be silently modified.
+
+## MEasyMate AI Hub V1
+**Status:** ACTIVE / PHASE 0 APPROVED + FROZEN
+
+- Repo: `pormatee/measymate-ai-hub`
+- Flow: Product → MEasyMate AI Hub → AI Provider
+- DeepSeek = first provider.
+- Provider secrets = Server Environment only.
+- Public HTML/JS = no shared provider secret.
+- Provider-neutral contract / logical profile.
+- Auth + product_id/client_id + rate limit/quota + safe errors + usage tracking.
+- V1 text→text non-streaming.
+- No automatic provider fallback.
+- Prompt/response not logged by default.
+- Latest verified repo state: no source implementation yet.
+- Next: Phase 1 server skeleton and security/contract foundation.
+
+## Portfolio continuity rule
+- AIsure uses its own project Continuity.
+- PrachinLife uses its own project Continuity.
+- Secretary Master remains the cross-project Control Tower.
+- Project source repos remain separate.
+- Unknown state = `UNVERIFIED`; do not guess.

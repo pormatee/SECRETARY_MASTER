@@ -6,6 +6,8 @@
 - [Daily Latest](./daily/LATEST.md)
 - [Decision Log](./decisions/DECISION_LOG.md)
 - [Project folders](./projects/)
+- [AIsure](./projects/10-aisure/PROJECT.md)
+- [MEasyMate AI Hub](./projects/11-measymate-ai-hub/PROJECT.md)
 
 ## Project registry
 1. MEasyMate Brand / Ecosystem
@@ -17,3 +19,5 @@
 7. Promotion Intelligence
 8. PrachinLife / LocalLife
 9. Idea Bank
+10. AIsure
+11. MEasyMate AI Hub
