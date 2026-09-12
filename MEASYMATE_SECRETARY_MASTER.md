@@ -723,3 +723,47 @@ SOURCE/REPO:
 - Secretary Master remains the cross-project Control Tower.
 - Project source repos remain separate.
 - Unknown state = `UNVERIFIED`; do not guess.
+
+---
+
+# Ecosystem Architecture Decision — CBI + AI Readiness — 12 Sep 2026
+
+## MEasyMate CBI
+
+**Status:** NEXT — PHASE 0 ARCHITECTURE / CONTRACT
+
+MEasyMate will create a shared **Conversation Brain Intelligence (CBI)** project for conversation understanding across MEasyMate products.
+
+### Approved direction
+- Baseline CBI does not depend on external AI APIs.
+- CBI understands intent, entities/slots, conversation state, references, context/topic changes, confidence and clarification.
+- CBI does not replace Project Brain or make business decisions.
+- Use **Centralized Development, Distributed Runtime**:
+  - one shared CBI Core source of truth
+  - released CBI Runtime may be embedded in each Project
+  - each Project owns its Adapter and Domain Pack
+- Conversation State belongs to each Project/Session.
+- Multi-user and multi-project requests must remain isolated.
+- LocalLife/PrachinLife is the recommended first pilot.
+- Future difficult/low-confidence language may be escalated through **MEasyMate AI Hub**.
+- Project business logic must not bind directly to an external AI provider.
+
+## Permanent Standard Design Rule
+
+Every current and future MEasyMate Project must prepare an **AI + CBI readiness boundary**, even if AI/CBI is not enabled in its first version.
+
+Minimum preparation:
+- project/session/request identity
+- conversation state ownership
+- CBI adapter boundary
+- project Domain Pack
+- semantic result receiver
+- stable reference IDs where needed
+- confidence / clarification / fail-closed behavior
+- future AI Hub port
+- CBI/AI contract version fields
+
+Existing Projects do not need immediate invasive rewrites. Add the readiness boundary during the next relevant architecture/feature cycle while preserving frozen baselines and data safety.
+
+**Standard:** `standards/MEASYMATE_AI_CBI_READINESS_STANDARD_V1.md`
+**Project file:** `projects/12-measymate-cbi/PROJECT.md`
