@@ -767,3 +767,44 @@ Existing Projects do not need immediate invasive rewrites. Add the readiness bou
 
 **Standard:** `standards/MEASYMATE_AI_CBI_READINESS_STANDARD_V1.md`
 **Project file:** `projects/12-measymate-cbi/PROJECT.md`
+
+# Ecosystem Architecture Decision — Shared Platform Structure — 12 Sep 2026
+
+## Approved ecosystem direction
+
+- **MEasyMate Hub** = Center Point / ศูนย์อำนวยการใหญ่ของ Ecosystem
+- **Aisure** = Personal Advisor อิสระจาก LocalLife; เน้นการเงิน วางแผนชีวิต เกษียณ ประกัน และ Personal Advisory Domains ในอนาคต
+- **LocalLife** = Local Data + Decision Platform; ใช้ข้อมูลใน LocalLife DB, ตรวจสอบ/อัปเดต/วิเคราะห์ และไม่ทำ External Discovery/Search เองใน Runtime หลัก
+- **CBI** = เข้าใจ Intent, Context, Reference และบทสนทนา; ไม่แทน Project Brain
+- **Intelligence Engines** = ค้นหา/รวบรวม/คัดกรอง/Normalize/Evidence จากภายนอก เช่น Promotion, Vegan, Restaurant, Cafe, Tourism; ห้ามเขียน Production Canonical DB โดยตรง
+- **MEasyMate AI/API Hub** = Gateway กลางสำหรับ External AI, Provider, Quota, Cost, Security และ Secrets
+- **Independent HTML / Local Tools / Apps** = แยกอิสระ แต่ Plug-in Shared Capability ผ่าน Bridge/SDK ได้
+- **Bridge/SDK** = ทางเชื่อมมาตรฐานไป CBI, AI Hub, Entitlement, Information, Promotion และ Shared Services
+- **Account/Entitlement** = ควบคุม Paid AI / Feature Access / Quota / Expiry / Renewal
+- **Domain-owned Source of Truth** = แต่ละ Domain มีเจ้าของข้อมูลของตัวเอง; ห้ามทำ Mega DB กลางทุกอย่าง
+
+## LocalLife distribution model
+
+LocalLife Published Data เป็นแหล่งข้อมูลกลางสำหรับ Geographic/Vertical Views เช่น PrachinLife, ChonburiLife, PhuketLife, Vegan, Restaurant, Cafe และ Tourism โดยหนึ่ง Place ใช้ Stable `place_id` เดียวและไม่สร้าง Place DB ซ้ำ
+
+## LocalLife future intake model
+
+```text
+External Sources
+ ↓
+Intelligence Engines
+ ↓
+Candidate + Evidence Contract
+ ↓
+LocalLife Intake Gateway
+ ↓
+Verification / Dedup / Update
+ ↓
+LocalLife Canonical DB
+ ↓
+Published Projection
+ ↓
+Pages / LocalLife Brain / Consumers
+```
+
+**Standard:** `standards/MEASYMATE_ECOSYSTEM_ARCHITECTURE_STANDARD_V1.md`

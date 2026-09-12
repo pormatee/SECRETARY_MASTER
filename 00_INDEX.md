@@ -3,6 +3,7 @@
 - [Web Dashboard](./index.html)
 - [Master](./MEASYMATE_SECRETARY_MASTER.md)
 - [AI + CBI Readiness Standard](./standards/MEASYMATE_AI_CBI_READINESS_STANDARD_V1.md)
+- [Ecosystem Architecture Standard](./standards/MEASYMATE_ECOSYSTEM_ARCHITECTURE_STANDARD_V1.md)
 - [NOW / NEXT / HOLD](./priorities/NOW_NEXT_HOLD.md)
 - [Daily Latest](./daily/LATEST.md)
 - [Decision Log](./decisions/DECISION_LOG.md)
