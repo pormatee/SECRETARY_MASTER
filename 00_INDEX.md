@@ -4,6 +4,7 @@
 - [Master](./MEASYMATE_SECRETARY_MASTER.md)
 - [AI + CBI Readiness Standard](./standards/MEASYMATE_AI_CBI_READINESS_STANDARD_V1.md)
 - [Ecosystem Architecture Standard](./standards/MEASYMATE_ECOSYSTEM_ARCHITECTURE_STANDARD_V1.md)
+- [Multi-Project Safe Workflow V1](./standards/MEASYMATE_MULTI_PROJECT_SAFE_WORKFLOW_V1.md)
 - [NOW / NEXT / HOLD](./priorities/NOW_NEXT_HOLD.md)
 - [Daily Latest](./daily/LATEST.md)
 - [Decision Log](./decisions/DECISION_LOG.md)
