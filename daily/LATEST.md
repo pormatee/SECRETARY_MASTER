@@ -1,26 +1,22 @@
-# Daily Brief — 11 Sep 2026
+# LATEST — MEasyMate Secretary
 
-## สรุปล่าสุด
-- Portfolio checkpoint ล่าสุดอยู่ใน GitHub แล้วที่ `daily/2026-09-10_PORTFOLIO_CHECKPOINT.md`.
-- MEasyMate Secretary เป็น Control Tower กลาง และไม่แก้ source project อื่นโดยอัตโนมัติ.
-- AIsure มี Continuity แยกที่ `/root/AIsure_CONTINUITY`.
-- AIsure Coverage Adequacy V1 = FROZEN / PASS.
-- AIsure Protection Gap V1 = FROZEN_VERIFIED; final freeze regression 13/13 files PASS.
-- AIsure เหลือ post-cleanup smoke ก่อนปิด Step 6D แบบ CLEAN แล้วไป Product & Plan Intelligence.
-- MEasyMate AI Hub Phase 0 = APPROVED / FROZEN.
-- AI Hub repo: `pormatee/measymate-ai-hub`, branch `main`; ล่าสุดยังไม่มี source implementation.
-- AI Hub V1: Product → Hub → AI Provider; DeepSeek provider แรก; secret อยู่ Server Environment; provider-neutral contract; auth/product_id/client_id/rate limit/quota/safe errors/usage tracking; text→text non-streaming; no automatic fallback; prompt/response ไม่ log โดย default.
-- Promotion Intelligence เดินต่อจาก P5G เท่านั้น.
-- PrachinLife / LocalLife ต้องอ่าน Continuity ล่าสุดก่อนพัฒนาต่อ.
+**Checkpoint:** 2026-09-15
+**Generated:** 2026-09-15T22:24:34+07:00
 
-## งานถัดไป
-1. AIsure: post-cleanup smoke → hash snapshot → Product & Plan Intelligence architecture.
-2. MEasyMate AI Hub: Phase 1 จาก Phase 0 ที่ Freeze แล้ว โดยไม่ใส่ secret ลง repo.
-3. Secretary: เพิ่ม AIsure และ MEasyMate AI Hub เข้า registry หลัก.
-4. Promotion Intelligence: เดินต่อจาก P5G โดยรักษา fail-closed.
-5. PrachinLife: resume จาก latest Continuity เท่านั้น.
+Portfolio dashboard has been refreshed to the 2026-09-15 checkpoint.
 
-## กฎสำคัญ
-- `ACTIVE` ไม่ได้หมายถึงทำทุก project พร้อมกัน.
-- Source/version/test/deployment ที่ไม่มีหลักฐาน = `UNVERIFIED`.
-- Secrets/API keys/passwords/tokens/customer-sensitive data ห้ามเก็บใน Secretary Master.
+Key status:
+- Secretary standards active; Notice Architecture = V1.1 (`72bfa7c`)
+- MEasyMate Products has real Money and Contact Shift sources
+- Contact Shift clean URL latest verified repo commit = `0433b63`
+- Money current documented version = `F2.1.11`, schema `3`
+- Notice Core Android smoke = PASS including duplicate-render fix in local test; Product repo push still pending
+- CBI V1.0 = FROZEN (`0c35f4b`) with regression/stress/blind evidence PASS
+- Promo Finder = V1.9 Pages verified (`82ebb85`)
+- LocalLife/PrachinLife repo verified; restructure/cache-compatibility work still pending proof
+- Easy Life = person-centric; Wave 1 Working Life; implementation repo UNVERIFIED
+- AI Hub repo exists but remains empty
+
+See:
+- `data/secretary-data.json`
+- `daily/2026-09-15_PORTFOLIO_CHECKPOINT.md`
