@@ -1,5 +1,20 @@
 # LATEST — MEasyMate Secretary
 
+<!-- CAPTION_ANALYTICS_2026_09_16_START -->
+## Update — 2026-09-16
+
+- Added Project 13: **MEasyMate Caption Studio**
+- Latest known delivered Caption Studio version: **V1.0A Android**
+- Caption Studio source repository/source-of-truth: **UNVERIFIED**
+- Analytics & Privacy Standard updated locally to **V1.1**
+- **MEasyMate Money F2.1.12** is the Analytics reference implementation
+- New customer-facing Web Products default to `ANALYTICS_MODE = LOCAL`
+- Central Analytics transport remains OFF until endpoint/privacy/security verification
+- Existing products without Analytics use `ANALYTICS_STATUS = RETROFIT_REQUIRED`
+- Report Pro is marked for Analytics retrofit
+- PRE_GIT_AUDIT is required before this checkpoint is committed/pushed
+<!-- CAPTION_ANALYTICS_2026_09_16_END -->
+
 **Checkpoint:** 2026-09-15
 **Generated:** 2026-09-15T22:24:34+07:00
 

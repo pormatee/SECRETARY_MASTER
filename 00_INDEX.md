@@ -12,6 +12,7 @@
 - [AIsure](./projects/10-aisure/PROJECT.md)
 - [MEasyMate AI Hub](./projects/11-measymate-ai-hub/PROJECT.md)
 - [MEasyMate CBI](./projects/12-measymate-cbi/PROJECT.md)
+- [MEasyMate Caption Studio](./projects/13-caption-studio/PROJECT.md)
 
 ## Project registry
 1. MEasyMate Brand / Ecosystem
@@ -26,3 +27,4 @@
 10. AIsure
 11. MEasyMate AI Hub
 12. MEasyMate CBI
+13. MEasyMate Caption Studio

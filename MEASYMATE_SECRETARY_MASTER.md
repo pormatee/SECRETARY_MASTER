@@ -808,3 +808,58 @@ Pages / LocalLife Brain / Consumers
 ```
 
 **Standard:** `standards/MEASYMATE_ECOSYSTEM_ARCHITECTURE_STANDARD_V1.md`
+
+<!-- PROJECT_13_CAPTION_STUDIO_START -->
+
+------------------------------------------------------------------------
+
+## Project Registry Addition — MEasyMate Caption Studio
+
+### Identity
+
+- Project ID: `caption-studio`
+- Display Name: **MEasyMate Caption Studio**
+- Type: Content / Social Media Tool
+- State: VERIFY
+- Latest known delivered version: **V1.0A Android**
+- Source repository: **UNVERIFIED**
+
+### Verified checkpoint
+
+Delivery evidence from 13 September 2026 confirms:
+
+- Single HTML build
+- ZIP backup build
+- Android-oriented version
+- storage fallback
+- Offline Core
+
+The delivery artifact proves a V1.0A build existed, but the current editable source-of-truth and repository must still be inventoried before modification.
+
+### Analytics / Privacy
+
+Caption Studio was delivered before Analytics & Privacy Standard V1.1 and no verified Analytics integration is recorded.
+
+```text
+ANALYTICS_STATUS = RETROFIT_REQUIRED
+ANALYTICS_MODE_TARGET = LOCAL
+CENTRAL_TRANSPORT = OFF
+```
+
+Use MEasyMate Money F2.1.12 as the architecture reference for Shared Core + project config + Event Allowlist + local-first usage insights.
+
+Caption/prompt text, shop/customer content, address/phone data, uploaded images and generated images are forbidden Analytics payloads by default.
+
+### Next Work
+
+- Inventory latest source files
+- Verify source-of-truth and repo
+- Decide Product Hub location
+- Retrofit local-only Analytics safely
+- Check Logo / Shortcut / Information / Contact / Notice standards
+- PRE_GIT_AUDIT before Git
+- PRE_RELEASE_AUDIT before customer release
+
+Project detail: `projects/13-caption-studio/PROJECT.md`
+
+<!-- PROJECT_13_CAPTION_STUDIO_END -->
