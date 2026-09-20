@@ -863,3 +863,25 @@ Caption/prompt text, shop/customer content, address/phone data, uploaded images 
 Project detail: `projects/13-caption-studio/PROJECT.md`
 
 <!-- PROJECT_13_CAPTION_STUDIO_END -->
+
+<!-- AI_HUB_CURRENT_2026_09_20_START -->
+
+# Current Project Checkpoint — MEasyMate AI Hub — 20 Sep 2026
+
+- **STATUS:** PHASE 2 CLOSED / PASS
+- **VERSION:** `0.2.0-termux`
+- **ARCHITECTURE:** Provider-neutral Multi-Project AI Hub
+- **STABLE MAIN COMMIT:** `60eb1504706bddb13793bc326369997c6d274637`
+- Phase 1 remains historical at `1c3b667`.
+- Phase 2 implementation base: `2b47f37`.
+- Authentication / authenticated client+product identity / spoof protection = PASS.
+- Rate Limit / Daily Quota = PASS.
+- SHA-256 client-token registry / fail-closed auth = PASS.
+- **MULTI_PROJECT_ISOLATION_GATE = PASS.**
+- **TESTS = 18/18 PASS.**
+- Live authenticated Hub → DeepSeek path = PASS.
+- Production blocker: rate/quota counters are in-memory and reset on restart.
+- Next Work: Phase 3 Usage/Cost Tracking + Logs, then persistent usage/quota storage and hardening.
+- Later Coach/entitlement work remains on its separate branch and is not part of stable Phase 2 main.
+
+<!-- AI_HUB_CURRENT_2026_09_20_END -->
