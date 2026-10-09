@@ -1,0 +1,69 @@
+name: Idea Bank V1.2 - Cloudflare Manual Deploy
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Safe Pages Direct Upload
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout trusted main
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Confirm no private seed and validate API
+        working-directory: projects/09-idea-bank/cloud-v1.2
+        run: |
+          set -euo pipefail
+          node - <<'NODE'
+          const fs=require('node:fs');
+          const html=fs.readFileSync('public/index.html','utf8');
+          const match=html.match(/<script id="seed-data"[^>]*>([\s\S]*?)<\/script>/);
+          if (!match) throw new Error('Missing seed-data element');
+          const seed=JSON.parse(match[1]);
+          if (!Array.isArray(seed.ideas) || !Array.isArray(seed.themes) || seed.ideas.length || seed.themes.length) {
+            throw new Error('ABORT: public website contains private seed');
+          }
+          console.log('PUBLIC_EMPTY_SEED=PASS');
+          NODE
+          node --test tests/api.test.js
+
+      - name: Create new Pages project if missing and deploy
+        working-directory: projects/09-idea-bank/cloud-v1.2
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.IDEABANK_CF_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.IDEABANK_CF_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          if [ -z "${CLOUDFLARE_API_TOKEN:-}" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ]; then
+            echo 'Missing IDEABANK_CF_API_TOKEN or IDEABANK_CF_ACCOUNT_ID in GitHub Actions Secrets' >&2
+            exit 1
+          fi
+          PROJECT=idea-bank-private-v12
+          STATUS=$(curl -sS --max-time 30 -o /tmp/idea-bank-pages-project.json -w '%{http_code}' \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT")
+          case "$STATUS" in
+            200) echo 'EXISTING_PAGES_PROJECT=YES' ;;
+            404)
+              echo 'CREATING_NEW_PAGES_PROJECT=YES'
+              npx --yes wrangler@4.136.3 pages project create "$PROJECT" --production-branch=main ;;
+            *)
+              echo "Cloudflare project lookup HTTP=$STATUS; STOP (check API token permission and account ID)" >&2
+              exit 1 ;;
+          esac
+          # The /functions directory next to /public is bundled by Wrangler.
+          npx --yes wrangler@4.136.3 pages deploy public --project-name="$PROJECT" --branch=main
+          echo 'CLOUDFLARE_DEPLOY=SUBMITTED'
+          echo 'IMPORTANT: DO NOT IMPORT PRIVATE DATA UNTIL ACCESS AND D1 AUTH GATES PASS'
