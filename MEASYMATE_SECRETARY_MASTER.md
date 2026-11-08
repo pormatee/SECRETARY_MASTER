@@ -885,3 +885,25 @@ Project detail: `projects/13-caption-studio/PROJECT.md`
 - Later Coach/entitlement work remains on its separate branch and is not part of stable Phase 2 main.
 
 <!-- AI_HUB_CURRENT_2026_09_20_END -->
+
+
+------------------------------------------------------------------------
+
+## New Project Registrations — 2026-11-08
+
+### Project 14 — MEasyMate TrustGuard
+
+- Status: DISCOVERY / UX-FIRST; priority UNSET.
+- Public Thai-first, mobile-first digital safety product for scam and cyber-threat awareness, evidence-based checking, and practical response guidance.
+- Core principles: evidence-first, distinguish facts/reputation/AI inference, never claim 100% safe, use INSUFFICIENT DATA when evidence is inadequate, privacy-first, no unsupported accusations.
+- UX-first. Proposed V1: public URL/site phishing checks, text/image Scam Detective, Scam Library, and evidence-based Threat-to-Action reports.
+- Implementation NOT STARTED; source repository UNVERIFIED. See `projects/14-trustguard/PROJECT.md`.
+
+### Project 15 — MEasyMate Web Security Auditor
+
+- Status: DISCOVERY; priority UNSET.
+- Separate restricted security assessment project for owners and explicitly authorized assessors; NOT a public TrustGuard feature.
+- Passive-first; active tests require documented authorization and explicit scope. No DoS, credential attacks, destructive tests, or secret/session-token retention.
+- Implementation NOT STARTED; source repository UNVERIFIED. See `projects/15-web-security-auditor/PROJECT.md`.
+
+**Secretary update only:** no product source code, tests, deployments, or production readiness were changed or verified.
