@@ -1,3 +1,10 @@
+## Update — 2026-11-08 — TrustGuard + Web Security Auditor registration
+
+- Registered Project 14: MEasyMate TrustGuard — DISCOVERY / UX-FIRST; implementation NOT STARTED; source repo UNVERIFIED.
+- Registered Project 15: MEasyMate Web Security Auditor — DISCOVERY; separate restricted project; implementation NOT STARTED; source repo UNVERIFIED.
+- TrustGuard is a public Thai-first digital safety product; evidence-first and privacy-first. Web Security Auditor is separate and authorization-gated, not exposed as a public TrustGuard scanner.
+- No product source code, tests, deployments, or production readiness were changed or verified by this Secretary update.
+
 # LATEST — MEasyMate Secretary
 
 <!-- AI_HUB_PHASE2_2026_09_20_START -->
